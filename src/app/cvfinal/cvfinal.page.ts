@@ -12,6 +12,7 @@ export class CvfinalPage implements OnInit {
 
   ngOnInit() {
     console.log(this.allService.cv.textprofile)
+   //console.log(this.allService.cv.comptescv)
     console.log(this.allService.cv.noms)
   }
 

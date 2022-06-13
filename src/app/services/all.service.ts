@@ -7,7 +7,7 @@ import { Cv } from '../models/cv';
 export class AllService {
   
   private _textprofile: string;
-  private _compte: string;
+  private _comptes: string;
   private _lien: string;
   private _contact: number;
   private _formation: string;
@@ -38,12 +38,12 @@ export class AllService {
     this._textprofile = textprofile;
   }
 
-  get compte() {
-    return this._compte;
+  get comptes() {
+    return this._comptes;
   }
 
-  set compte(compte: string) {
-    this._compte = compte;
+  set comptes(comptes: string) {
+    this._comptes = comptes;
   }
   get lien() {
     return this._lien;

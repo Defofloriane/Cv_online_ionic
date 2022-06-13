@@ -22,20 +22,19 @@ export class ProfilePage implements OnInit {
   }
   onSubmit(){
     const inputs = document.getElementsByTagName('input');
-    const len = inputs.length ;
-    console.log(len);
-    for (let i = 1; i <= len; i+2) {
-      this.compte.push(new Compte(i, inputs[i].value, inputs[i+1].value));
+    const len = inputs.length - 2;
+    for (let i = 0; i <= len; i += 2) {
+      let t = i + 1
+      this.compte.push(new Compte(t, inputs[i].value, inputs[t].value))
     }
-    // Compte.forEach(i => {
-    //   this.compte.push(len[i]);
-    // });
-    console.log(this.compte);
+    console.log(this.compte)
+    //this.allService.cv.comptescv = inputs;
+
 
     const bloctext = document.getElementsByTagName('textarea')[0].value;
     console.log(bloctext);
     this.allService.cv.textprofile = bloctext;
-    // this.text.push(bloctext);
+    //this.text.push(bloctext);
 
   }
 }
