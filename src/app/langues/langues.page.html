@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Langues</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <section class="profile">
+    <p>logo du languest</p>
+      <h1>Langues</h1>
+      <div class="lab" *ngFor="let langue of langues ">
+        <label for="number">{{langue}}</label>
+        <input type="text" placeholder="langues">
+      </div>
+    
+      
+    <div class="btns">
+      <button class="submit" (click)="onSubmit()">Submit</button>
+      <button (click)="add()" class="add">Add</button>
+    </div>
+    </section>
+      
+</ion-content>

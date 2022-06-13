@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>contact</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <section class="profile">
+    <p>logo du contact</p>
+      <h1>contact</h1>
+      <div class="lab" *ngFor="let label of labels ">
+        <label for="number">{{label}}</label>
+        <input type="text" placeholder="tel">
+      </div>
+  
+    <div class="btns">
+      <button class="submit" (click)="onSubmit()">Submit</button>
+      <button (click)="add()" class="add">Add</button>
+    </div>
+  </section>
+      
+</ion-content>

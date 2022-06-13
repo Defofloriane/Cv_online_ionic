@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+  
+
+<ion-content>
+ <section class="profile">
+  <p>logo du profil</p>
+    <h1>Profile</h1>
+    <textarea name="" id="profil" cols="30" rows="10" placeholder="veuillez saisir votre profil ici!"></textarea>
+   
+  </section>
+  <section class="profile">
+    <p>logo du comptet</p>
+    <h1>Compte</h1>
+  
+   
+    <section class="divider" *ngFor="let compte of comptes"> 
+      <div class="lab" >
+        <label for="text">{{compte}}</label>
+        <input type="text" class="compte" placeholder="Nom du compte">
+      </div>
+      <div class="lab">
+      
+        <label for="text">{{lien }}</label>
+        <input type="text" class="lien" placeholder="lien">
+      </div>
+       
+    </section>
+    <div class="btns">
+      <button class="submit" (click)="onSubmit()">Submit</button>
+      <button (click)="add()" class="add">Add compte</button>
+    </div>
+  </section>
+   
+
+</ion-content>

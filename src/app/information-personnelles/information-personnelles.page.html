@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Informations Personnelles</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="content">
+
+    <div class="items" *ngFor="let info of infos">
+      <div class="item">
+        <label for="formation">Nom</label>
+        <input type="text" id="formation" placeholder="votre nom">
+      </div>
+      <div class="item">
+        <label for="etablissement">Prenom</label>
+        <input type="text" id="etablissement" placeholder="votre prenom">
+      </div>
+      <div class="item">
+        <label for="ville">Adresse</label>
+        <input type="text" id="adresse" placeholder="votre adresse">
+      </div>
+      <div class="item">
+        <label for="ville">Nationalite</label>
+        <input type="text" id="adresse" placeholder="votre Nationalite">
+      </div>
+      <div class="item">
+        <label for="date-fin">Date de Naissance</label>
+        <input type="date" id="date-fin">
+      </div> 
+    </div>
+
+    <div class="btns">
+      <button class="submit" (click)="onSubmit()">Submit</button>
+      <button (click)="add()" class="add">Add</button>
+    </div>
+        
+  </div>
+
+</ion-content>

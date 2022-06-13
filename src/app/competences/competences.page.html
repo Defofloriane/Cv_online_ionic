@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Competences</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="content">
+
+    <div class="items" *ngFor="let langage of langages">
+    
+      <div class="item">
+        <label for="etablissement">Competences</label>
+        <input type="text" id="langage">
+      </div>
+      <div class="item">
+        <label for="etablissement">Niveau /5</label>
+        <input type="number" id="niveau">
+      </div>
+    </div> 
+    <div class="btns">
+      <button class="submit" (click)="onSubmit()">Submit</button>
+      <button (click)="add()" class="add">Add</button>
+    </div>
+        
+  </div>
+
+</ion-content>
