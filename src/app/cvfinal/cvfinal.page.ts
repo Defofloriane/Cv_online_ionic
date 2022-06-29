@@ -31,8 +31,7 @@ export class CvfinalPage implements OnInit {
     });
     await loading.present();
     this.store.collection("Cv").doc('floriane').set({
-      id:'floriane',
-      noms: "defo"
+      client: JSON.stringify(this.cv),
     }).then(
       ()=>{
         loading.dismiss()
@@ -43,4 +42,14 @@ export class CvfinalPage implements OnInit {
     );
   }
 
+  getdata() {
+    this.store.collection('Cv').doc("floriane").valueChanges().subscribe(
+      res => {
+        console.log(res)
+      },
+      err => {
+        console.log(err)
+      }
+    )
+  }
 }
