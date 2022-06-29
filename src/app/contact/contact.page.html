@@ -11,15 +11,21 @@
   <section class="profile">
     <p>logo du contact</p>
       <h1>contact</h1>
-      <div class="lab" *ngFor="let label of labels ">
-        <label for="number">{{label}}</label>
-        <input type="text" placeholder="tel">
-      </div>
-  
-    <div class="btns">
-      <button class="submit" (click)="onSubmit()">Submit</button>
-      <button (click)="add()" class="add">Add</button>
-    </div>
+      <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <div>
+          <label for="number">Contact 1</label>
+          <input type="text" name="numero1" placeholder="tel 1" ngModel>
+        </div>
+
+        <div>
+          <label for="number">Contact 2</label>
+          <input type="text" name="numero2" placeholder="tel 2" ngModel>
+        </div>
+
+        <div class="btns">
+          <button class="submit" type="submit">Submit</button>
+        </div>
+      </form>
   </section>
-      
+
 </ion-content>

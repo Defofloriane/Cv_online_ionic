@@ -11,38 +11,66 @@
 
   <div class="content">
 
-    <div class="items" *ngFor="let experience of experiences">
-      <div class="item">
-        <label for="formation">Poste</label>
-        <input type="text" id="formation">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+      <div>
+        <div class="item">
+          <label for="formation">Poste</label>
+          <input type="text" name="poste1" id="formation" ngModel>
+        </div>
+        <div class="item">
+          <label for="etablissement">Entreprise</label>
+          <input type="text" name="entreprise1" id="etablissement" ngModel>
+        </div>
+        <div class="item">
+          <label for="ville">Pays</label>
+          <input type="text" name="pays1" id="ville" ngModel>
+        </div>
+        <div class="item">
+          <label for="date-debut">Date de debut</label>
+          <input type="date" name="dateDebut1" id="date-debut" ngModel>
+        </div>
+        <div class="item">
+          <label for="date-fin">Date de fin</label>
+          <input type="date" name="DateFin1" id="date-fin" ngModel>
+        </div>
+        <div class="item">
+          <label for="description">Description</label>
+          <textarea name="description1" id="description" cols="30" rows="10" ngModel></textarea>
+        </div>
       </div>
-      <div class="item">
-        <label for="etablissement">Entreprise</label>
-        <input type="text" id="etablissement">
-      </div>
-      <div class="item">
-        <label for="ville">Ville</label>
-        <input type="text" id="ville">
-      </div>
-      <div class="item">
-        <label for="date-debut">Date de debut</label>
-        <input type="date" id="date-debut">
-      </div>
-      <div class="item">
-        <label for="date-fin">Date de fin</label>
-        <input type="date" id="date-fin">
-      </div>
-      <div class="item">
-        <label for="description">Description</label>
-        <textarea name="" id="description" cols="30" rows="10"></textarea>
-      </div>  
-    </div>
 
-    <div class="btns">
-      <button class="submit" (click)="onSubmit()">Submit</button>
-      <button (click)="add()" class="add">Add</button>
-    </div>
-        
+      <div>
+        <div class="item">
+          <label for="formation">Poste</label>
+          <input type="text" name="poste2" id="formation" ngModel>
+        </div>
+        <div class="item">
+          <label for="etablissement">Entreprise</label>
+          <input type="text" name="entreprise1" id="etablissement" ngModel>
+        </div>
+        <div class="item">
+          <label for="ville">Pays</label>
+          <input type="text" name="pays2" id="ville" ngModel>
+        </div>
+        <div class="item">
+          <label for="date-debut">Date de debut</label>
+          <input type="date" name="dateDebut2" id="date-debut" ngModel>
+        </div>
+        <div class="item">
+          <label for="date-fin">Date de fin</label>
+          <input type="date" name="DateFin2" id="date-fin" ngModel>
+        </div>
+        <div class="item">
+          <label for="description">Description</label>
+          <textarea name="description2" id="description" cols="30" rows="10" ngModel></textarea>
+        </div>
+      </div>
+
+      <div class="btns">
+        <button class="submit" type="submit">Submit</button>
+      </div>
+    </form>
+
   </div>
 
 </ion-content>

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Competences } from '../models/cv';
+import { AllService } from '../services/all.service';
 
 @Component({
   selector: 'app-competences',
@@ -6,25 +9,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./competences.page.scss'],
 })
 export class CompetencesPage implements OnInit {
-  langages = ['langages 1'];
-  langage = []
-  constructor() { }
+
+  constructor(private all:AllService) { }
 
   ngOnInit() {
   }
-  add(){
-    this.langages.push('contact '+ (this.langages.length +1));
-  }
 
   //pour recuperer les valeurs saisr dans l input
-  onSubmit(){
-    let tab = document.getElementsByTagName('input');
-    let len = tab.length;
-    for (let i = 0; i < len; i++) {
-      this.langage.push(tab[i].value);
-    }
-    console.log(this.langage)
-
-   
+  onSubmit(f: NgForm){
+    let val = f.value;
+    this.all.cv.competences = [];
+    this.all.cv.competences.push(new Competences(
+      1, val.competence1, val.niveau1, val.categorie1
+    ));
+    this.all.cv.competences.push(new Competences(
+      2, val.competence2, val.niveau2, val.categorie2
+    ))
   }
 }

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { CvfinalPage } from '../cvfinal/cvfinal.page';
+import { NgForm } from '@angular/forms';
 import { Compte } from '../models/cv';
 import { AllService } from '../services/all.service';
+
 
 @Component({
   selector: 'app-profile',
@@ -9,33 +10,17 @@ import { AllService } from '../services/all.service';
   styleUrls: ['./profile.page.scss'],
 })
 export class ProfilePage implements OnInit {
-  comptes = ['compte 1'];
   compte: Compte[] = [];
 
-  constructor(private allService: AllService) { }
+  constructor(private all:AllService) { }
 
   ngOnInit() {
   }
-
-  add(){
-    this.comptes.push('compte '+ (this.comptes.length +1));
-  }
-  onSubmit(){
-    this.compte = [];
-    this.allService.cv.socials = [];
-    const inputs = document.getElementsByTagName('input');
-    const len = inputs.length - 2;
-    for (let i = 0; i <= len; i += 2) {
-      let t = i + 1
-      this.compte.push(new Compte(t, inputs[i].value, inputs[t].value))
-    }
-    this.allService.cv.socials = this.compte;
-
-    console.log(this.allService.cv.socials)
-
-    const bloctext = document.getElementsByTagName('textarea')[0].value;
-    console.log(bloctext);
-    this.allService.cv.profile = bloctext;
-    //this.text.push(bloctext);
+  onSubmit(f: NgForm){
+    let val = f.value;
+    this.all.cv.comptes = [];
+    this.all.cv.profile = val.profile
+    this.all.cv.comptes.push(new Compte(1, val.compte1, val.lien1));
+    this.all.cv.comptes.push(new Compte(2, val.compte2, val.lien2));
   }
 }

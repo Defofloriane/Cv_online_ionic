@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AllService } from '../services/all.service';
 import { Cv } from '../models/cv';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { LoadingController } from '@ionic/angular';
+import { AllService } from '../services/all.service';
 
 @Component({
   selector: 'app-cvfinal',
@@ -10,18 +12,35 @@ import { Cv } from '../models/cv';
 export class CvfinalPage implements OnInit {
 
   cv:Cv;
-  constructor(private allService: AllService) {
-    this.cv = this.allService.cv;
-    console.log(this.cv.profile)
-    console.log(this.cv.socials)
-    console.log(this.allService.cv.contact)
-    console.log(this.cv.formation);
-    
+  constructor(
+    private store: AngularFirestore,
+    public loadingController:LoadingController,
+    private all:AllService
+    ) {
+      this.cv = all.cv;
   }
 
   ngOnInit() {
-    console.log('cv final')
-  
+    console.log(this.cv)
+  }
+
+  async upload () {
+    const loading = await this.loadingController.create({
+      message: 'Traitement en cours',
+      duration: null
+    });
+    await loading.present();
+    this.store.collection("Cv").doc('floriane').set({
+      id:'floriane',
+      noms: "defo"
+    }).then(
+      ()=>{
+        loading.dismiss()
+      },
+      (e)=>{
+        console.log(e.toString())
+      }
+    );
   }
 
 }

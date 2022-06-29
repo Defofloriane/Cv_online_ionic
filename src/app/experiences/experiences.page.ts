@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Experience } from '../models/cv';
+import { AllService } from '../services/all.service';
 
 @Component({
   selector: 'app-experiences',
@@ -6,28 +9,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./experiences.page.scss'],
 })
 export class ExperiencesPage implements OnInit {
-  experiences: number[] = [1];
-  experience = []
-  constructor() { }
- 
+
+  constructor(private all:AllService) { }
+
   ngOnInit() {
   }
 
-  add(){
-    this.experiences.push((this.experiences.length+1));
-  }
-  
   //pour recuperer les valeurs saisr dans l input
-  onSubmit(){
-    let tab = document.getElementsByTagName('input');
-    let len = tab.length;
-    for (let i = 0; i < len; i++) {
-      this.experience.push(tab[i].value);
-    }
-    console.log(this.experience)
-
-    let bloctext = document.getElementsByTagName('textarea')[0].value;
-    // this.text.push(bloctext);
-    console.log(bloctext);
+  onSubmit(f: NgForm){
+    let val = f.value;
+    this.all.cv.experiences = [];
+    this.all.cv.experiences.push(new Experience(
+      1, val.poste1, val.entreprise1, val.pays1, val.dateDebut1, val.dateFin1, val.description1
+    ));
+    this.all.cv.experiences.push(new Experience(
+      2, val.poste2, val.entreprise2, val.pays2, val.dateDebut2, val.dateFin2, val.description2
+    ));
   }
 }

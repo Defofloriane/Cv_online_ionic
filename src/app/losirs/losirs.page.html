@@ -12,16 +12,20 @@
   <section class="profile">
     <p>logo du loisirs</p>
       <h1>Loisirs</h1>
-      <div class="lab" *ngFor="let loisir of loisirs ">
-        <label for="number">{{loisir}}</label>
-        <input type="text" placeholder="loisirs">
-      </div>
-    
-      
-    <div class="btns">
-      <button class="submit" (click)="onSubmit()">Submit</button>
-      <button (click)="add()" class="add">Add</button>
-    </div>
+
+      <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <div class="lab">
+          <label for="number">Loisir 1</label>
+          <input type="text" name="loisir1" placeholder="loisirs">
+        </div>
+        <div class="lab">
+          <label for="number">Loisir 2</label>
+          <input type="text" name="loisir2" placeholder="loisirs">
+        </div>
+        <div class="btns">
+          <button class="submit" type="submit">Submit</button>
+        </div>
+      </form>
   </section>
-      
+
 </ion-content>

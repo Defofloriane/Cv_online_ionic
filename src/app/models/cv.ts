@@ -1,42 +1,26 @@
 export class Cv {
-    id:number;
+    id:string = '';
     noms: string;
     prenoms: string;
     adresse: string;
     nationalite: string;
-    dateNaisance: Date;
+    dateNaissance: string;
     lieuNaissance: string;
-    contact: Contact[] = [];
+    contacts:Contact[] = [];
     occupation:string;
     photo: string;
     email:Emails;
-    socials: Compte[];
+    comptes:Compte[] = [];
     formation: Formation[] = [];
     experiences: Experience[] = [];
-    competences: Competences;
+    competences: Competences[] = [];
     langues: Langues[] = [];
     loisirs: string[] = [];
     profile: string;
 }
 
-export class Contact{
-    id : number;
-    contact : string;
-    constructor(id:number, numero:string){
-        this.id = id;
-        this.contact = numero;
-    }
-}
-export class Compte{
-    id: number;
-    nom: string;
-    lien: string;
-    constructor(id: number, nom: string,lien: string){
-             this.id = id;
-             this.nom= nom;
-             this.lien= lien;
-    }
-}
+
+
 export class Formation{
     id: number;
     diplome: string;
@@ -56,36 +40,30 @@ export class Formation{
     }
 }
 export class Experience{
-    id: number;
-    titre: string;
-    entreprise: string;
-    periode: String;
-    description: string;
-    constructor(id:number,titre:string,entreprise:string,periode:string,description:string){
-             this.id= id;
-             this.titre =titre;
-             this.entreprise = entreprise;
-             this.periode = periode;
-             this.description = description;
-
+    constructor(
+      public id:number,
+      public poste:string,
+      public entreprise:string,
+      public ville:string,
+      public dateDebut:string,
+      public dateFin:string,
+      public description:string
+      ){
     }
 }
 export class Competences{
-    id: number;
-    nom: string;
-    niveau: number;
-    categorie:string;
-    constructor(id:number,nom:string,niveau:number){
-          this.id=id;
-          this.nom= nom;
-          this.niveau = niveau;
+    constructor(
+      public id:number,
+      public nom:string,
+      public niveau:string,
+      public categirie:string){
     }
 }
 export class Langues{
     id: number;
     nom: string;
-    niveau: number;
-    constructor(id:number,nom:string,niveau:number){
+    niveau: string;
+    constructor(id:number,nom:string,niveau:string){
          this.id= id;
          this.nom = nom;
          this.niveau = niveau;
@@ -98,4 +76,24 @@ export class Emails{
           this.id = id;
           this.email= email;
     }
+}
+
+export class Compte{
+  id: number;
+  nom: string;
+  lien: string;
+  constructor(id: number, nom: string,lien: string){
+           this.id = id;
+           this.nom= nom;
+           this.lien= lien;
+  }
+}
+
+export class Contact{
+  id : number;
+  contact : string;
+  constructor(id:number, numero:string){
+      this.id = id;
+      this.contact = numero;
+  }
 }

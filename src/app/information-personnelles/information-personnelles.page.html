@@ -11,34 +11,34 @@
 
   <div class="content">
 
-    <div class="items" *ngFor="let info of infos">
-      <div class="item">
-        <label for="formation">Nom</label>
-        <input type="text" id="formation" placeholder="votre nom">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+      <div>
+        <div class="item">
+          <label for="formation">Nom</label>
+          <input type="text" name="nom" id="formation" placeholder="votre nom" ngModel>
+        </div>
+        <div class="item">
+          <label for="etablissement">Prenom</label>
+          <input type="text" name="prenom" id="etablissement" placeholder="votre prenom" ngModel>
+        </div>
+        <div class="item">
+          <label for="ville">Adresse</label>
+          <input type="text" name="adresse" id="adresse" placeholder="votre adresse" ngModel>
+        </div>
+        <div class="item">
+          <label for="ville">Nationalite</label>
+          <input type="text" name="nationalite" id="adresse" placeholder="votre Nationalite" ngModel>
+        </div>
+        <div class="item">
+          <label for="date-fin">Date de Naissance</label>
+          <input type="date" name="dateNaissance" id="date-fin" ngModel>
+        </div>
       </div>
-      <div class="item">
-        <label for="etablissement">Prenom</label>
-        <input type="text" id="etablissement" placeholder="votre prenom">
-      </div>
-      <div class="item">
-        <label for="ville">Adresse</label>
-        <input type="text" id="adresse" placeholder="votre adresse">
-      </div>
-      <div class="item">
-        <label for="ville">Nationalite</label>
-        <input type="text" id="adresse" placeholder="votre Nationalite">
-      </div>
-      <div class="item">
-        <label for="date-fin">Date de Naissance</label>
-        <input type="date" id="date-fin">
-      </div> 
-    </div>
 
-    <div class="btns">
-      <button class="submit" (click)="onSubmit()">Submit</button>
-      
-    </div>
-        
+      <div class="btns">
+        <button class="submit" type="submit">Submit</button>
+      </div>
+    </form>
   </div>
 
 </ion-content>

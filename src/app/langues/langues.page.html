@@ -11,23 +11,33 @@
   <section class="profile">
     <p>logo du languest</p>
       <h1>Langues</h1>
-      
-    <div class="items" *ngFor="let langue of langues">
-    
-      <div class="item">
-        <label for="number">{{langue}}</label>
-        <input type="text" placeholder="langues">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+      <div class="items">
+        <div class="item">
+          <label for="number">Langue 1</label>
+          <input type="text" name="langue1" placeholder="langues" ngModel>
+        </div>
+        <div class="item">
+          <label for="etablissement">Niveau /5</label>
+          <input type="number" name="niveau1" placeholder="langues" id="niveau" ngModel>
+        </div>
       </div>
-      <div class="item">
-        <label for="etablissement">Niveau /5</label>
-        <input type="number" placeholder="langues" id="niveau">
+
+      <div class="items">
+        <div class="item">
+          <label for="number">Langue 2</label>
+          <input type="text" name="langue2" placeholder="langues" ngModel>
+        </div>
+        <div class="item">
+          <label for="etablissement">Niveau /5</label>
+          <input type="number" name="niveau2" placeholder="langues" id="niveau" ngModel>
+        </div>
       </div>
-    </div>
-      
-    <div class="btns">
-      <button class="submit" (click)="onSubmit()">Submit</button>
-      <button (click)="add()" class="add">Add</button>
-    </div>
-    </section>
-      
+
+      <div class="btns">
+        <button class="submit">Submit</button>
+      </div>
+    </form>
+  </section>
+
 </ion-content>
