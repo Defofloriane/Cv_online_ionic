@@ -7,8 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LanguesPage implements OnInit {
   langues = ['langue 1'];
+  niveau = ['niveau 1'];
   Langues = []
-  constructor() { }
+  constructor() { 
+    console.log('je suis sur la page langue')
+  }
 
   ngOnInit() {
   }

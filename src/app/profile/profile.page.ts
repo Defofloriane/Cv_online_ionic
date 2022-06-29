@@ -21,20 +21,21 @@ export class ProfilePage implements OnInit {
     this.comptes.push('compte '+ (this.comptes.length +1));
   }
   onSubmit(){
+    this.compte = [];
+    this.allService.cv.socials = [];
     const inputs = document.getElementsByTagName('input');
     const len = inputs.length - 2;
     for (let i = 0; i <= len; i += 2) {
       let t = i + 1
       this.compte.push(new Compte(t, inputs[i].value, inputs[t].value))
     }
-    console.log(this.compte)
-    //this.allService.cv.comptescv = inputs;
+    this.allService.cv.socials = this.compte;
 
+    console.log(this.allService.cv.socials)
 
     const bloctext = document.getElementsByTagName('textarea')[0].value;
     console.log(bloctext);
-    this.allService.cv.textprofile = bloctext;
+    this.allService.cv.profile = bloctext;
     //this.text.push(bloctext);
-
   }
 }

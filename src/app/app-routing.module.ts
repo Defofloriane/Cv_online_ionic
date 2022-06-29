@@ -66,10 +66,6 @@ const routes: Routes = [
     loadChildren: () => import('./losirs/losirs.module').then( m => m.LosirsPageModule)
   },
   {
-    path: 'cvfinal',
-    loadChildren: () => import('./cvfinal/cvfinal.module').then( m => m.CvfinalPageModule)
-  },
-  {
     path: 'competences',
     loadChildren: () => import('./competences/competences.module').then( m => m.CompetencesPageModule)
   },
@@ -80,6 +76,10 @@ const routes: Routes = [
   {
     path: 'information-personnelles',
     loadChildren: () => import('./information-personnelles/information-personnelles.module').then( m => m.InformationPersonnellesPageModule)
+  },
+  {
+    path: 'cvfinal',
+    loadChildren: () => import('./cvfinal/cvfinal.module').then( m => m.CvfinalPageModule)
   },
 ];
 

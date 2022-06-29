@@ -11,11 +11,18 @@
   <section class="profile">
     <p>logo du languest</p>
       <h1>Langues</h1>
-      <div class="lab" *ngFor="let langue of langues ">
+      
+    <div class="items" *ngFor="let langue of langues">
+    
+      <div class="item">
         <label for="number">{{langue}}</label>
         <input type="text" placeholder="langues">
       </div>
-    
+      <div class="item">
+        <label for="etablissement">Niveau /5</label>
+        <input type="number" placeholder="langues" id="niveau">
+      </div>
+    </div>
       
     <div class="btns">
       <button class="submit" (click)="onSubmit()">Submit</button>

@@ -6,46 +6,23 @@ export class Cv {
     nationalite: string;
     dateNaisance: Date;
     lieuNaissance: string;
-    contact: Contact;
+    contact: Contact[] = [];
     occupation:string;
     photo: string;
-    descriptionformations: string;
     email:Emails;
-    comptescv: Compte;
-    formation: Formation;
-    experiences: Experience;
+    socials: Compte[];
+    formation: Formation[] = [];
+    experiences: Experience[] = [];
     competences: Competences;
-    langues: Langues;
-    loisirs: Loisirs;
-    textprofile: string;
-    // compte: Compte;
-    // lien: string;
-    // contact: Contact;
-    // formation: Formation;
-    // etablissement: string;
-    // villeformation: string;
-    // datedebut: Date;
-    // datefin: Date;
-    // descriptionformations: string;
-    // poste: string;
-    // employer: string;
-    // villeexperience: string;
-    // descriptiionexperience: string;
-    // competences: Competences;
-    // niveau: number;
-    // noms: string;
-    // prenoms: string;
-    // adresse: string;
-    // nationalite: string;
-    // datenaisance: Date;
-
- 
+    langues: Langues[] = [];
+    loisirs: string[] = [];
+    profile: string;
 }
 
 export class Contact{
     id : number;
-    contact : number;
-    constructor(id:number, numero:number){
+    contact : string;
+    constructor(id:number, numero:string){
         this.id = id;
         this.contact = numero;
     }
@@ -63,27 +40,33 @@ export class Compte{
 export class Formation{
     id: number;
     diplome: string;
-    ecole: string;
-    periode: Date;
-    constructor(id: number,diplome: string,ecole: string,periode:Date){
+    structure:string;
+    lieu: string;
+    dateDebut: string;
+    dateFin: string;
+    description:string;
+    constructor(id: number,diplome: string, structure:string, lieu: string,dateDebut: string, dateFin: string, description:string){
            this.id= id;
            this.diplome= diplome;
-           this.ecole= ecole;
-           this.periode = periode;
+           this.structure= structure;
+           this.lieu= lieu;
+           this.dateDebut = dateDebut;
+           this.dateFin = dateFin;
+           this.description = description;
     }
 }
 export class Experience{
     id: number;
     titre: string;
     entreprise: string;
-    periode: Date;
-    details: string;
-    constructor(id:number,titre:string,entreprise:string,periode:Date,details:string){
+    periode: String;
+    description: string;
+    constructor(id:number,titre:string,entreprise:string,periode:string,description:string){
              this.id= id;
              this.titre =titre;
              this.entreprise = entreprise;
              this.periode = periode;
-             this.details = details;
+             this.description = description;
 
     }
 }
@@ -91,6 +74,7 @@ export class Competences{
     id: number;
     nom: string;
     niveau: number;
+    categorie:string;
     constructor(id:number,nom:string,niveau:number){
           this.id=id;
           this.nom= nom;
@@ -106,15 +90,6 @@ export class Langues{
          this.nom = nom;
          this.niveau = niveau;
     }
-}
-export class Loisirs{
-    id: number;
-    nom: string;
-    constructor(id:number,nom:string){
-           this.id = id;
-           this.nom= nom;
-    }
-    
 }
 export class Emails{
     id: number;

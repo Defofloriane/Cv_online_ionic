@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AllService } from '../services/all.service';
+import { Cv } from '../models/cv';
 
 @Component({
   selector: 'app-cvfinal',
@@ -8,12 +9,19 @@ import { AllService } from '../services/all.service';
 })
 export class CvfinalPage implements OnInit {
 
-  constructor( private allService:AllService) { }
+  cv:Cv;
+  constructor(private allService: AllService) {
+    this.cv = this.allService.cv;
+    console.log(this.cv.profile)
+    console.log(this.cv.socials)
+    console.log(this.allService.cv.contact)
+    console.log(this.cv.formation);
+    
+  }
 
   ngOnInit() {
-    console.log(this.allService.cv.textprofile)
-   //console.log(this.allService.cv.comptescv)
-    console.log(this.allService.cv.noms)
+    console.log('cv final')
+  
   }
 
 }

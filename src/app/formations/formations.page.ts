@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AllService } from '../services/all.service';
+import { Formation } from '../models/cv';
 
 @Component({
   selector: 'app-formations',
@@ -9,7 +10,7 @@ import { AllService } from '../services/all.service';
 export class FormationsPage implements OnInit {
 
   formations: number[] = [1];
-  formation =[];
+  formation:Formation[] =[];
   constructor(private allService:AllService) { }
 
   ngOnInit() {
@@ -21,16 +22,16 @@ export class FormationsPage implements OnInit {
   
 //pour recuperer les valeurs saisr dans l input
   onSubmit(){
+    this.allService.cv.formation = [];
+    this.formation = [];
+    let desc = document.getElementsByTagName('textarea');
     let tab = document.getElementsByTagName('input');
-    let len = tab.length;
-    for (let i = 0; i < len; i++) {
-      this.formation.push(tab[i].value);
+    let len = 0;
+    for (let i = 0; i < tab.length; i+=5) {
+      this.formation.push(new Formation(len+1, tab[i].value, tab[i+1].value, tab[i+2].value, tab[i+3].value, tab[i+4].value, desc[len].value,));
+      len++;  
     }
-    console.log(this.formation)
-
-    let bloctext = document.getElementsByTagName('textarea')[0].value;
-    // this.text.push(bloctext);
-    console.log(bloctext);
-    //this.allService.cv.formation = bloctext;
+    this.allService.cv.formation = this.formation;
+    console.log(this.allService.cv.formation)
   }
 }
